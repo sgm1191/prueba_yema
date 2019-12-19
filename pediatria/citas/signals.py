@@ -10,7 +10,7 @@ def on_create_cita(sender, instance, created, **kwargs):
     if created:
         print('sending mail to santiago.gm1191@gmail.com')
         subject = 'Prueba YEMA: correo de notificación de cita.'
-        message = 'Tu cita ha sido agendada el día de mañana a las 5pm'
+        message = 'Tu cita ha sido agendada en la fecha ' + str(instance.fecha) + ' a las ' + str(instance.hora) + ' con el Dr. ' + instance.pediatra.nombre + '\n' + instance.comentario
         email_from = settings.EMAIL_HOST_USER
         recipient_list = ['santiago.gm1191@gmail.com',]
         send_mail(subject=subject, message=message, from_email=email_from, recipient_list=recipient_list, fail_silently=False )

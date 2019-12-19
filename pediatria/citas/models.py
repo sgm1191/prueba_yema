@@ -27,4 +27,4 @@ class Cita(models.Model):
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.fecha) + ' ' + str(self.hora) + ': ' + self.comentario
+        return str(self.fecha) + ' ' + str(self.hora) + '   ' + self.comentario
