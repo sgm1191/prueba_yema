@@ -4,12 +4,12 @@ Crear una aplicación usando el framework Django que permite agendar citas con e
 - [x] Crear los modelos necesarios y visualizarlos en el admin de Django.
 - [x] Configurar zona horaria como "America/Mexico_City".
 - [x] Configurar código de idioma como "es-mx".
-- [] Agregar traducciones.
+- [x] Agregar traducciones.
 - [x] Cambiar título en admin de Django "Django administration" a "Yema Test - [Nombre Candidato]".
 - [x] Exponer una API REST con un endpoint que permita solicitar una cita.
 - [x] Desde el admin de Django, poder agregar el nombre del pediatra, un comentario y la fecha y hora de la cita agendada.
 - [x] Desde el admin de Django, poder enviar un correo con el nombre del pediatra, un comentario y la fecha y hora asignada para la cita.
-- [] Pruebas unitarias
+- [x] Pruebas unitarias
 - **Opcional**
 - [x] Funcionalidad para usuario final (Templates y views fuera de admin site de Django)
 - [x] Empaquetar aplicación en un contenedor docker
@@ -33,6 +33,27 @@ Para usar el administrador de DJango en la url `/admin` se tiene que crear un su
 python manage.py createsuperuser
 ```
 Dentro del administrador de Django se tienen que crear objetos para **pediatras** y **pacientes** antes de poder agendar una **cita**
+
+### Idioma
+
+Para cambiar el idioma a inglés cambiar el valor de la variable 
+
+``` python
+LANGUAGE_CODE = 'en'
+```
+en el archivo `settings.py`.
+
+### Correo
+
+Para configurar el(los) correo(s) a los que se enviará el recordatorio de la cita agregar los destinatarios en la variable
+
+``` python
+EMAIL_TO_LIST = [
+    'santiago.gm1191@gmail.com',
+    ...
+]
+```
+en el archivo `settings.py`.
 
 ## API REST Documentation
 

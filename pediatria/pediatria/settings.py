@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -50,7 +50,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'pediatria.urls'
@@ -112,10 +111,12 @@ TIME_ZONE = 'America/Mexico_City'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-LOCALE_PATHS = (os.path.join (BASE_DIR, 'locale/'))
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 LANGUAGES = [
-    ('es-mx', _('Spanish')),
-    ('en-us', _('English')),
+    ('es-mx', _('Español')),
+    ('en', _('Inglés')),
 ]
 
 
@@ -133,3 +134,6 @@ EMAIL_HOST_PASSWORD = 'eqahotewdfrdbalo'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'post.master.sgm@gmail.com'
+EMAIL_TO_LIST = [
+    'santiago.gm1191@gmail.com',
+]
