@@ -36,7 +36,13 @@ Dentro del administrador de Django se tienen que crear objetos para **pediatras*
 
 ### Idioma
 
-Para cambiar el idioma a inglés cambiar el valor de la variable 
+Para cambiar el idioma se necesita primero compilar los archivos de traducciones con el comando
+
+``` bash
+python manage.py compilemessages
+```
+
+después hay que camiar el código de lenguaje a inglés asignando el valor de la variable 
 
 ``` python
 LANGUAGE_CODE = 'en'
