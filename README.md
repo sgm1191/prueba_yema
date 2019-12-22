@@ -12,7 +12,7 @@ Crear una aplicación usando el framework Django que permite agendar citas con e
 - [x] Pruebas unitarias
 - **Opcional**
 - [] Funcionalidad para usuario final (Templates y views fuera de admin site de Django)
-- [] Empaquetar aplicación en un contenedor docker
+- [x] Empaquetar aplicación en un contenedor docker
 - [] Integración con servidor web (Nginx)
 - **Tecnologías**
 - [x] Python 3.7
@@ -61,11 +61,11 @@ EMAIL_TO_LIST = [
 ```
 en el archivo `settings.py`.
 
-## API REST Documentation
+### API REST Documentation
 
-### Citas
+#### /citas
 
-#### /agendar : post
+##### /agendar : post
 Crea una cita en una **fecha** y **hora** con un **pediatra** y un **paciente**. En el **comentario** se describe el asunto de la cita. Después de registrar la cita, envía un correo al correo especificado en la variable `EMAIL_TO` en el archivo `settings.py`
 request post body:
 
@@ -81,10 +81,10 @@ request post body:
 }
 ```
 
-##### respuestas
+###### respuestas
 Si se agendó la cita correctamente se mandará un mensaje con la leyenda 'cita creada' con el id de la cita, sino se mandara un mensaje de error
 
-###### mensaje exitoso
+**mensaje exitoso**
 ``` json
 {
     "message": "cita creada",
@@ -92,10 +92,18 @@ Si se agendó la cita correctamente se mandará un mensaje con la leyenda 'cita 
 }
 ```
 
-###### mensaje fallido 
+**mensaje fallido**
 ``` json
 {
     "status": "internal error",
     "message": "Paciente matching query does not exist."
 }
+```
+### Contenerizado con Docker
+
+La aplicación se encuentra contenida en una imagen de Docker para compilarla correr dentro del directorio `prueba_yema/pediatria` los comandos
+
+``` bash
+docker-compose build
+docker-compose up
 ```
